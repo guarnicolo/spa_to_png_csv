@@ -81,7 +81,7 @@ import matplotlib.pyplot as plt    #to create plots and save as .png files
 ##################
 
 # definition the folder path containing all the .spa files
-folder_path = 'C:/Users/Nicolò/Desktop/Riferimenti Laura Pagnin'
+folder_path = '.'
 
 ##################
 
