@@ -17,7 +17,7 @@
 # # Step:1
 # Importing the read_spa code from GitHub https://github.com/lerkoah/spa-on-python
 
-# In[26]:
+# In[13]:
 
 
 #### read_spa code was obtained from https://github.com/lerkoah/spa-on-python: ####
@@ -63,7 +63,7 @@ def read_spa(filepath):
 # # Step:2
 # Importing all required python functions
 
-# In[133]:
+# In[14]:
 
 
 import os                          #to view/manage file inside the folder
@@ -75,14 +75,13 @@ import matplotlib.pyplot as plt    #to create plots and save as .png files
 # # Step:3
 # Definition of the folder path and visualization of the nukber of .spa file contained and their names.
 
-# In[356]:
+# In[15]:
 
 
 ##################
 
 # definition the folder path containing all the .spa files
-folder_path = '.'
-
+folder_path = r'D:\Nicolò D\POLIMI\OneDrive - Politecnico di Milano\Dottorato\02_COURSES\python\testing_files'
 ##################
 
 #to check all files inside the foldes activate following line (delete #):
@@ -100,12 +99,12 @@ print(spa_files)
 # # Step:4
 # Undestanding which are the outputs of read_spa code.
 
-# In[171]:
+# In[20]:
 
 
 #undestanding which is the type of the result from read_spa code
 spectrum_test = read_spa(folder_path+"/"+spa_files[0])
-
+spa_file=spa_files[0]
 print(type(spectrum_test))
 
 #read_spa gives as outputs the min wavenumber, the max wavenumber and the total of points of the spectrum
@@ -120,7 +119,7 @@ print(spectrum_test[2]) # is the title
 # # step:5
 # Plotting a test_spectrum in a 16:9 format, removing y_axis_label and flipping the x axis and adding the title to the plot from filename (deleting extension .spa)
 
-# In[357]:
+# In[21]:
 
 
 #plot in 16:9 format
@@ -145,7 +144,7 @@ plt.close()
 # 
 # In oder to avoid overlapping a if-else method is implemented. The method add an offset if the x coordinate of the peak is a multiple of 7,6,5,3,2.
 
-# In[349]:
+# In[22]:
 
 
 import numpy as np
@@ -209,12 +208,12 @@ print("list of peak:",peak_x_values)
 # # Step:7
 # Saving the data as .csv file in the same folder and using the same name.
 
-# In[353]:
+# In[26]:
 
 
 # Save the data as a CSV file
 csv = {'wavenumber cm-1': x, 'intensity': y}
-csv_df = pd.DataFrame(data)
+csv_df = pd.DataFrame(csv)
     
 csv_df.to_csv(folder_path + "/" +spa_file[:-4]+".csv", index=False)
 
@@ -222,7 +221,7 @@ csv_df.to_csv(folder_path + "/" +spa_file[:-4]+".csv", index=False)
 # # Step:8
 # Implementation of step 5,6,7 for all the .spa files in the folder.
 
-# In[355]:
+# In[27]:
 
 
 #implementation to iterate all this process to all the .spa file in the folder
@@ -290,9 +289,3 @@ for spa_file in spa_files:
 
 
 # # end
-
-# In[ ]:
-
-
-
-
